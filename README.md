@@ -1,4 +1,4 @@
-This [rbenv](http://rbenv.org/) plugin resolves abbrevations and aliases to full Ruby version identifiers. It is mainly intended to be used by other plugins, such as [rbenv-use](https://github.com/rkh/rbenv-use).
+This [rbenv](http://rbenv.org/) plugin resolves abbrevations and aliases to full Ruby version identifiers. It is mainly intended to be used by other plugins, such as [rbenv-use](https://github.com/toy/rbenv-use).
 
 ## Installation
 
