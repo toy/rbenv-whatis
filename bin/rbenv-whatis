@@ -28,7 +28,7 @@ if [ $# != 1 ]; then
   exit 1
 fi
 
-case $1 in
+case "$1" in
   default)
     echo `command rbenv local 2>/dev/null || command rbenv global`
     exit;;
@@ -50,23 +50,23 @@ if [ -z "$only_installed" ] && which ruby-build >/dev/null 2>&1; then
 fi
 
 for ruby in $list; do
-  if [ $ruby = $1 ]; then
-    echo $1
+  if [ "$ruby" = "$1" ]; then
+    echo "$1"
     exit
   fi
 
-  case $ruby in
-    $1*-dev|$1*-rc*|$1*-preview*) dev=$ruby;;
-    $1*) result=$ruby;;
+  case "$ruby" in
+    $1*-dev|$1*-rc*|$1*-preview*) dev="$ruby";;
+    $1*) result="$ruby";;
   esac
 done
 
-if [ $result = 0 ]; then
-  if [ $dev = 0 ]; then
-    echo $1
+if [ "$result" = 0 ]; then
+  if [ "$dev" = 0 ]; then
+    echo "$1"
   else
-    echo $dev
+    echo "$dev"
   fi
 else
-  echo $result
+  echo "$result"
 fi
