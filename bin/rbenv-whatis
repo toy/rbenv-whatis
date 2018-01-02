@@ -28,9 +28,9 @@ if [ $# != 1 ]; then
   exit 1
 fi
 
-case "$1" in
+case $1 in
   default)
-    echo `command rbenv local 2>/dev/null || command rbenv global`
+    command rbenv local 2>/dev/null || command rbenv global
     exit;;
   current)
     command rbenv version-name
@@ -43,7 +43,7 @@ case "$1" in
     exit;;
 esac
 
-list=`command rbenv versions --bare`
+list=$(command rbenv versions --bare)
 
 if [ -z "$only_installed" ] && which ruby-build >/dev/null 2>&1; then
   list="$list $(rbenv-install --list | fgrep -v 'Available versions:')"
@@ -55,9 +55,9 @@ for ruby in $list; do
     exit
   fi
 
-  case "$ruby" in
-    $1*-dev|$1*-rc*|$1*-preview*) dev="$ruby";;
-    $1*) result="$ruby";;
+  case $ruby in
+    $1*-dev|$1*-rc*|$1*-preview*) dev=$ruby;;
+    $1*) result=$ruby;;
   esac
 done
 
