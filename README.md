@@ -4,5 +4,5 @@ This [rbenv](http://rbenv.org/) plugin resolves abbrevations and aliases to full
 
 Simply clone the repository into the plugins directory:
 
-    mkdir -p $RBENV_ROOT/plugins
-    git clone https://github.com/toy/rbenv-whatis.git $RBENV_ROOT/plugins/whatis
+    mkdir -p "$(rbenv root)"/plugins
+    git clone https://github.com/toy/rbenv-whatis.git "$(rbenv root)"/plugins/whatis
