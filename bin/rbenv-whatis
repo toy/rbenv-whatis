@@ -30,20 +30,20 @@ fi
 
 case $1 in
   default)
-    command rbenv local 2>/dev/null || command rbenv global
+    command rbenv-local 2>/dev/null || command rbenv-global
     exit;;
   current)
-    command rbenv version-name
+    command rbenv-version-name
     exit;;
   global)
-    command rbenv global
+    command rbenv-global
     exit;;
   local)
-    command rbenv local
+    command rbenv-local
     exit;;
 esac
 
-list=$(command rbenv versions --bare --skip-aliases)
+list=$(rbenv-versions --bare --skip-aliases)
 
 if [ -z "$only_installed" ] && type rbenv-install &>/dev/null; then
   list="$list $(rbenv-install --list-all | fgrep -v 'Available versions:')"
