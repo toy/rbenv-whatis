@@ -43,7 +43,7 @@ case $1 in
     exit;;
 esac
 
-list=$(command rbenv versions --bare)
+list=$(command rbenv versions --bare --skip-aliases)
 
 if [ -z "$only_installed" ] && type rbenv-install &>/dev/null; then
   list="$list $(rbenv-install --list-all | fgrep -v 'Available versions:')"
